@@ -1,24 +1,28 @@
 {
-  "scripts": {
-    "dev": "bun run --hot src/index.tsx",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "bun src/db/migrate.ts",
-    "db:seed": "bun src/db/seed.ts",
-    "db:setup": "bun db:generate && bun db:migrate && bun db:seed",
-    "db:clean": "drizzle-kit drop && rm sqlite.db"
-  },
-  "dependencies": {
-    "@hono/zod-validator": "0.2.2",
-    "drizzle-orm": "0.32.1",
-    "drizzle-zod": "0.5.1",
-    "hono": "4.5.3",
-    "zod": "3.23.8"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "drizzle-kit": "0.23.0",
-    "prettier": "3.3.3",
-    "typed-htmx": "0.3.1",
-    "typescript": "5.5.4"
-  }
+	"scripts": {
+		"dev": "bun run --hot src/index.tsx",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "bun src/db/migrate.ts",
+		"db:seed": "bun src/db/seed.ts",
+		"db:setup": "bun db:generate && bun db:migrate && bun db:seed",
+		"db:clean": "drizzle-kit drop && rm db/sqlite.db",
+		"db:reset": "bun db:clean && bun db:setup",
+		"prod": "bun db:migrate && bun run src/index.tsx"
+	},
+	"dependencies": {
+		"@hono/zod-validator": "0.2.2",
+		"drizzle-orm": "0.32.1",
+		"drizzle-zod": "0.5.1",
+		"hono": "4.5.3",
+		"qrcode": "^1.5.4",
+		"zod": "3.23.8"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/qrcode": "^1.5.5",
+		"drizzle-kit": "0.23.0",
+		"prettier": "3.3.3",
+		"typed-htmx": "0.3.1",
+		"typescript": "5.5.4"
+	}
 }
